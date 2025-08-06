@@ -24,7 +24,7 @@ spec:
           organization: {{ .githubOrg | default "mdefenders" }}
           allBranches: true
           tokenRef:
-            secretName: {{ .name }}-github-token
+            secretName: {{ .githubOrg }}-github-token
             key: token
   template:
     metadata:

@@ -9,6 +9,6 @@ entries:
     name: argo-appsets
     type: application
     urls:
-    - https://github.com/mdefenders/helmcharts/argo-appsets-0.1.0.tgz
+    - https://mdefenders.github.io/helmcharts/argo-appsets-0.1.0.tgz
     version: 0.1.0
 generated: "2025-08-06T21:16:15.71853+03:00"

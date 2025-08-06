@@ -1,0 +1,55 @@
+{{- range .Values.appSets }}
+apiVersion: argoproj.io/v1alpha1
+kind: ApplicationSet
+metadata:
+  name: {{ .name }}
+  namespace: {{ .namespace | default "argocd" }}
+spec:
+  goTemplate: true
+  goTemplateOptions: ["missingkey=error"]
+  generators:
+    - scmProvider:
+        cloneProtocol: https
+        filters:
+          {{- range .filters }}
+          - branchMatch: {{ .branchMatch | quote }}
+            {{- if .pathsExist }}
+            pathsExist:
+              {{- range .pathsExist }}
+              - {{ . | quote }}
+              {{- end }}
+            {{- end }}
+          {{- end }}
+        github:
+          organization: {{ .githubOrg | default "mdefenders" }}
+          allBranches: true
+          tokenRef:
+            secretName: {{ .name }}-github-token
+            key: token
+  template:
+    metadata:
+      name: '{{`{{ .repository }}`}}-{{`{{ .branchNormalized }}`}}'
+    spec:
+      project: default
+      source:
+        repoURL: '{{`{{ .url }}`}}'
+        targetRevision: '{{`{{ .branch }}`}}'
+        chartPath: {{ .chartPath | default "deploy/charts/app" | quote }}
+        helm:
+          valueFiles:
+            {{- range .valueFiles }}
+            - {{ . | quote }}
+            {{- end }}
+      destination:
+        server: https://kubernetes.default.svc
+        namespace: '{{`{{ .repository }}`}}-{{`{{ regexReplaceAll "[^a-z0-9-]" (lower .branchNormalized) "-" }}`}}'
+      syncPolicy:
+        automated:
+          prune: true
+          selfHeal: true
+        syncOptions:
+          - CreateNamespace=true
+          - PruneLast=true
+          - PrunePropagationPolicy=foreground
+---
+{{- end }}

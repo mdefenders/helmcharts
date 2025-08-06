@@ -34,7 +34,7 @@ spec:
       source:
         repoURL: '{{`{{ .url }}`}}'
         targetRevision: '{{`{{ .branch }}`}}'
-        chartPath: {{ .chartPath | default "deploy/charts/app" | quote }}
+        path: {{ .chartPath | default "deploy/charts/app" | quote }}
         helm:
           valueFiles:
             {{- range .valueFiles }}

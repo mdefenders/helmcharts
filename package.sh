@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-helm package argo-appsets
+helm package it-delivers
 helm repo index . --url  https://mdefenders.github.io/helmcharts
 git add .
 git commit -m "Publish Helm chart"

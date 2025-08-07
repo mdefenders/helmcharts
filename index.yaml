@@ -29,4 +29,12 @@ entries:
     urls:
     - https://github.com/mdefenders/helmcharts/releases/download/it-delivers-0.1.1/it-delivers-0.1.1.tgz
     version: 0.1.1
-generated: "2025-08-07T09:47:05.67734389Z"
+  service-template:
+  - apiVersion: v2
+    created: "2025-08-07T17:17:12.269101507Z"
+    digest: a14c1544dc3e637e268a1c16a41b24e5a237891770abab67a93672bdf1d85d4c
+    name: service-template
+    urls:
+    - https://github.com/mdefenders/helmcharts/releases/download/service-template-0.1.1/service-template-0.1.1.tgz
+    version: 0.1.1
+generated: "2025-08-07T17:17:12.269132216Z"

@@ -40,6 +40,8 @@ spec:
             {{- range .valueFiles }}
             - {{ . | quote }}
             {{- end }}
+          valuesObject:
+            branch: '{{`{{ regexReplaceAll "[^a-z0-9-]" (lower .branchNormalized) "-" }}`}}'
       destination:
         server: https://kubernetes.default.svc
         namespace: '{{`{{ .repository }}`}}-{{`{{ regexReplaceAll "[^a-z0-9-]" (lower .branchNormalized) "-" }}`}}'

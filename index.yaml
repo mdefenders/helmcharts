@@ -31,10 +31,17 @@ entries:
     version: 0.1.1
   service-template:
   - apiVersion: v2
+    created: "2025-08-07T18:17:39.249192517Z"
+    digest: 4754a2a9d524654cd2be9cdc3a3e0a064ceb3545fb40f728299f73227b1441cc
+    name: service-template
+    urls:
+    - https://github.com/mdefenders/helmcharts/releases/download/service-template-0.1.2/service-template-0.1.2.tgz
+    version: 0.1.2
+  - apiVersion: v2
     created: "2025-08-07T17:17:12.269101507Z"
     digest: a14c1544dc3e637e268a1c16a41b24e5a237891770abab67a93672bdf1d85d4c
     name: service-template
     urls:
     - https://github.com/mdefenders/helmcharts/releases/download/service-template-0.1.1/service-template-0.1.1.tgz
     version: 0.1.1
-generated: "2025-08-07T17:17:12.269132216Z"
+generated: "2025-08-07T18:17:39.249204871Z"

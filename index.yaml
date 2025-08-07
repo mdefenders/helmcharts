@@ -33,10 +33,17 @@ entries:
     version: 0.1.0
   it-delivers:
   - apiVersion: v2
+    created: "2025-08-07T03:39:53.265546133Z"
+    digest: b1e5ade3030bb76abb9f3d5452109e50db3b69020c8619ee3413e02694977336
+    name: it-delivers
+    urls:
+    - https://github.com/mdefenders/helmcharts/releases/download/it-delivers-0.1.1/it-delivers-0.1.1.tgz
+    version: 0.1.1
+  - apiVersion: v2
     created: "2025-08-07T06:18:53.412864+03:00"
     digest: ae9dc372e169dd0da5ad12982346aa9edec3cde6748a8ffa5e7f5d9e0f6ac093
     name: it-delivers
     urls:
     - https://mdefenders.github.io/helmcharts/it-delivers-0.1.0.tgz
     version: 0.1.0
-generated: "2025-08-07T06:18:53.409973+03:00"
+generated: "2025-08-07T03:39:53.265557945Z"

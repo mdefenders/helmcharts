@@ -24,6 +24,16 @@ entries:
   gke-gateways:
   - apiVersion: v2
     appVersion: 0.0.1
+    created: "2025-08-10T05:39:36.163223836Z"
+    description: A Helm chart for Kubernetes
+    digest: f164d65ae74832db787cd1891e576d5a55e2945ce79f4cadb93b75555e70896c
+    name: gke-gateways
+    type: application
+    urls:
+    - https://github.com/mdefenders/helmcharts/releases/download/gke-gateways-0.0.2/gke-gateways-0.0.2.tgz
+    version: 0.0.2
+  - apiVersion: v2
+    appVersion: 0.0.1
     created: "2025-08-10T03:52:06.331235888Z"
     description: A Helm chart for Kubernetes
     digest: 667dcbce7d4807518502de040aecad52f0f6bc8196128992b44db8b97bbde338
@@ -55,4 +65,4 @@ entries:
     urls:
     - https://github.com/mdefenders/helmcharts/releases/download/service-template-0.1.1/service-template-0.1.1.tgz
     version: 0.1.1
-generated: "2025-08-10T03:52:06.331262949Z"
+generated: "2025-08-10T05:39:36.163238793Z"

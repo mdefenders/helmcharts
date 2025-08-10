@@ -21,6 +21,17 @@ entries:
     urls:
     - https://github.com/mdefenders/helmcharts/releases/download/argo-appsets-0.1.3/argo-appsets-0.1.3.tgz
     version: 0.1.3
+  gke-gateways:
+  - apiVersion: v2
+    appVersion: 0.0.1
+    created: "2025-08-10T03:52:06.331235888Z"
+    description: A Helm chart for Kubernetes
+    digest: 667dcbce7d4807518502de040aecad52f0f6bc8196128992b44db8b97bbde338
+    name: gke-gateways
+    type: application
+    urls:
+    - https://github.com/mdefenders/helmcharts/releases/download/gke-gateways-0.0.1/gke-gateways-0.0.1.tgz
+    version: 0.0.1
   it-delivers:
   - apiVersion: v2
     created: "2025-08-07T03:39:53.265546133Z"
@@ -44,4 +55,4 @@ entries:
     urls:
     - https://github.com/mdefenders/helmcharts/releases/download/service-template-0.1.1/service-template-0.1.1.tgz
     version: 0.1.1
-generated: "2025-08-07T18:17:39.249204871Z"
+generated: "2025-08-10T03:52:06.331262949Z"

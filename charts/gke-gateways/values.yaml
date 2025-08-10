@@ -1,0 +1,5 @@
+project: "gke-gateways"
+domains:
+  mdefenders-org-cert:
+    hosts:
+      - "*.mdefenders.org"

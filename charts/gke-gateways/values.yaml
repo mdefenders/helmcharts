@@ -1,2 +1,2 @@
 project: "gke-gateways"
-
+gatewayClassName: "gke-l7-regional-external-managed"

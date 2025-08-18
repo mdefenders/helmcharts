@@ -1,7 +1,10 @@
+{{- if .Values.ingressEnabled }}
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
   name: {{ .Values.app }}
+  annotations:
+    kubernetes.io/ingress.class: "nginx"
 spec:
   ingressClassName: nginx
   rules:
@@ -15,3 +18,4 @@ spec:
             name: {{ .Values.app }}
             port:
               number: {{ .Values.servicePort | default 80 }}
+{{- end }}

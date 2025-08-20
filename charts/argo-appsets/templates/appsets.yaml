@@ -28,7 +28,7 @@ spec:
             key: token
   template:
     metadata:
-      name: '{{`{{ .repository }}`}}-{{`{{ .branchNormalized }}`}}'
+      name: '{{`{{ regexReplaceAll "-gitops$" .repository "" }}`}}-{{`{{ .branchNormalized }}`}}'
     spec:
       project: default
       source:
@@ -44,7 +44,7 @@ spec:
             branch: '{{`{{ regexReplaceAll "[^a-z0-9-]" (lower .branchNormalized) "-" }}`}}'
       destination:
         server: https://kubernetes.default.svc
-        namespace: '{{`{{ .repository }}`}}-{{`{{ regexReplaceAll "[^a-z0-9-]" (lower .branchNormalized) "-" }}`}}'
+        namespace: '{{`{{ regexReplaceAll "-gitops$" .repository "" }}`}}-{{`{{ regexReplaceAll "[^a-z0-9-]" (lower .branchNormalized) "-" }}`}}'
       syncPolicy:
         automated:
           prune: true

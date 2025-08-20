@@ -1,20 +1,22 @@
-{{- if .Values.httpRouteEnabled }}
+{{- if $.Values.httpRouteEnabled }}
+{{- range $name, $svc := .Values.services }}
 apiVersion: gateway.networking.k8s.io/v1beta1
 kind: HTTPRoute
 metadata:
-  name: {{ .Values.app }}-httproute
+  name: {{ $name }}-httproute
 spec:
   parentRefs:
   - name: gke-gateways-gateway
     namespace: gateways
   hostnames:
-  - {{ .Values.app }}.{{ .Values.branch | default "default" }}.{{ .Values.domain | default "mdefenders.org" }}
+  - {{ $name }}.{{ $.Values.branch | default "default" }}.{{ $.Values.domain | default "mdefenders.org" }}
   rules:
   - matches:
     - path:
         type: PathPrefix
         value: "/"
     backendRefs:
-    - name: {{ .Values.app }}
-      port: {{ .Values.servicePort | default 80 }}
+    - name: {{ $name }}
+      port: {{ $.Values.servicePort | default 80 }}
+{{- end }}
 {{- end }}

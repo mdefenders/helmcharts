@@ -1,21 +1,24 @@
-{{- if .Values.ingressEnabled }}
+{{- if $.Values.ingressEnabled }}
+{{- range $name, $svc := .Values.services }}
+---
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
-  name: {{ .Values.app }}
+  name: {{ $name }}
   annotations:
     kubernetes.io/ingress.class: "nginx"
 spec:
   ingressClassName: nginx
   rules:
-  - host: {{ .Values.app }}.{{ .Values.branch | default "default" }}.{{ .Values.domain | default "mdefenders.org" }}
+  - host: {{ $name }}.{{ $.Values.branch | default "default" }}.{{ $.Values.domain | default "mdefenders.org" }}
     http:
       paths:
       - path: /
         pathType: Prefix
         backend:
           service:
-            name: {{ .Values.app }}
+            name: {{ $name }}
             port:
-              number: {{ .Values.servicePort | default 80 }}
+              number: {{ $.Values.servicePort | default 80 }}
+{{- end }}
 {{- end }}

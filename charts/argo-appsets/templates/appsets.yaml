@@ -40,6 +40,8 @@ spec:
         repoURL: {{ .chartRepo | quote }}
         {{- if .chartVersion }}
         targetRevision: {{ .chartVersion | quote }}
+        {{- else }}
+        targetRevision: '*'
         {{- end }}
         {{- else }}
         repoURL: '{{`{{ .url }}`}}'

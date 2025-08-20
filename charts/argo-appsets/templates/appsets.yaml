@@ -13,6 +13,9 @@ spec:
         filters:
           {{- range .filters }}
           - branchMatch: {{ .branchMatch | quote }}
+            {{- if .repositoryMatch }}
+            repositoryMatch: {{ .repositoryMatch | quote }}
+            {{- end }}
             {{- if .pathsExist }}
             pathsExist:
               {{- range .pathsExist }}

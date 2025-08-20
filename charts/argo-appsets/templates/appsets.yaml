@@ -35,10 +35,12 @@ spec:
     spec:
       project: default
       source:
-        {{- if and .chartRepo .chartName .chartVersion }}
+        {{- if and .chartRepo .chartName }}
         chart: {{ .chartName | quote }}
         repoURL: {{ .chartRepo | quote }}
+        {{- if .chartVersion }}
         targetRevision: {{ .chartVersion | quote }}
+        {{- end }}
         {{- else }}
         repoURL: '{{`{{ .url }}`}}'
         targetRevision: '{{`{{ .branch }}`}}'

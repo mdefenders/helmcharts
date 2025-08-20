@@ -2,8 +2,8 @@ appSets:
   - name: example-appset
     namespace: argocd
     githubOrg: example-org
-    chartRepo: https://argoproj.github.io/argo-helm
-    chartName: argo-appsets
+    chartRepo: https://example-org/helm
+    chartName: service-template
     chartVersion: 0.1.7
     chartPath: "deploy/charts/app"
     valueFiles:

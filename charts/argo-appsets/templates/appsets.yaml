@@ -35,9 +35,15 @@ spec:
     spec:
       project: default
       source:
+        {{- if and .chartRepo .chartName .chartVersion }}
+        chart: {{ .chartName | quote }}
+        repoURL: {{ .chartRepo | quote }}
+        targetRevision: {{ .chartVersion | quote }}
+        {{- else }}
         repoURL: '{{`{{ .url }}`}}'
         targetRevision: '{{`{{ .branch }}`}}'
         path: {{ .chartPath | default "deploy/charts/app" | quote }}
+        {{- end }}
         helm:
           valueFiles:
             {{- range .valueFiles }}

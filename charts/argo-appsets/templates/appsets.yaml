@@ -34,27 +34,24 @@ spec:
       name: '{{`{{ regexReplaceAll "-gitops$" .repository "" }}`}}-{{`{{ .branchNormalized }}`}}'
     spec:
       project: default
-      source:
-        {{- if and .chartRepo .chartName }}
-        chart: {{ .chartName | quote }}
-        repoURL: {{ .chartRepo | quote }}
-        {{- if .chartVersion }}
-        targetRevision: {{ .chartVersion | quote }}
-        {{- else }}
-        targetRevision: '*'
-        {{- end }}
-        {{- else }}
-        repoURL: '{{`{{ .url }}`}}'
-        targetRevision: '{{`{{ .branch }}`}}'
-        path: {{ .chartPath | default "deploy/charts/app" | quote }}
-        {{- end }}
-        helm:
-          valueFiles:
-            {{- range .valueFiles }}
-            - {{ . | quote }}
-            {{- end }}
-          valuesObject:
-            branch: '{{`{{ regexReplaceAll "[^a-z0-9-]" (lower .branchNormalized) "-" }}`}}'
+      sources:
+        - repoURL: {{ .chartRepo | quote }}
+          chart: {{ .chartName | quote }}
+          {{- if .chartVersion }}
+          targetRevision: {{ .chartVersion | quote }}
+          {{- else }}
+          targetRevision: '*'
+          {{- end }}
+          helm:
+            valueFiles:
+              {{- range .valueFiles }}
+              - {{ . | quote }}
+              {{- end }}
+            valuesObject:
+              branch: '{{`{{ regexReplaceAll "[^a-z0-9-]" (lower .branchNormalized) "-" }}`}}'
+        - repoURL: '{{`{{ .url }}`}}'
+          targetRevision: '{{`{{ .branch }}`}}'
+          ref: values
       destination:
         server: https://kubernetes.default.svc
         namespace: '{{`{{ regexReplaceAll "-gitops$" .repository "" }}`}}-{{`{{ regexReplaceAll "[^a-z0-9-]" (lower .branchNormalized) "-" }}`}}'

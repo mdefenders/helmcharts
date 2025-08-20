@@ -3,6 +3,16 @@ entries:
   argo-appsets:
   - apiVersion: v2
     appVersion: 1.16.0
+    created: "2025-08-20T12:28:21.757602404Z"
+    description: A Helm chart for Kubernetes
+    digest: f80b1bf61cfc4ebcd5cda98c235a58098eaeb5d56ad8ee69f43eca25edd68ae9
+    name: argo-appsets
+    type: application
+    urls:
+    - https://github.com/mdefenders/helmcharts/releases/download/argo-appsets-0.1.8/argo-appsets-0.1.8.tgz
+    version: 0.1.8
+  - apiVersion: v2
+    appVersion: 1.16.0
     created: "2025-08-20T11:39:59.599803337Z"
     description: A Helm chart for Kubernetes
     digest: 8d35d282dd6301690d3728e5a8d9efe2e9e3d68ecc93c948685bce835c63d0bd
@@ -109,4 +119,4 @@ entries:
     urls:
     - https://github.com/mdefenders/helmcharts/releases/download/service-template-0.1.1/service-template-0.1.1.tgz
     version: 0.1.1
-generated: "2025-08-20T11:39:59.59983677Z"
+generated: "2025-08-20T12:28:21.757671431Z"
